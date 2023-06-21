@@ -34,5 +34,35 @@ rangoSalarios(780);
 
 //switch => evaluar las estaciones del año
 
+function calcularEstaciones($estaciones){
+    switch($estaciones){
+        case "invierno":
+            $estaciones = "invierno";
+            break;
+        case "verano":
+            $estaciones = "verano";
+            break;
+        case "fall":
+            $estaciones = "fall";
+            break;
+        case "primavera":
+            $estaciones = "primavera";
+            break;
+        default:
+            $estaciones = "ingrese una estacion";
+            
+    }
+    return $estaciones; 
+}
+echo calcularEstaciones("carro");
+
+
+#operador ternario
+//[2,3,45,5]
+function operadorTernario($arreglo){
+    echo $arreglo[0] === 5 ? "La posicion 0 del arreglo empieza en 5" : "La posicion 0 NO INICIA en 5";
+}
+echo "<br>";
+operadorTernario(["5",4,6,7,8]);
 
 ?>
