@@ -9,9 +9,9 @@ function insertionSort1($n, $arr) {
     //echo $ultima_posicion;
     //ciclo en decremento
     //[2 4 6 8 3]
-    for($i = $n -1; $i >= 1; $i--){
+    for($i = $n -1; $i >= 0; $i--){
         //condicionamos si el anterior es mayor al ultimo
-        if($arr[$i - 1] > $ultima_posicion){
+        if($i - 1 >= 0 && $arr[$i - 1] > $ultima_posicion){
             //duplico el valor de la posicion anterior
             $arr[$i] = $arr[$i - 1];
             //print_r($arr);
@@ -26,10 +26,11 @@ function insertionSort1($n, $arr) {
                 echo $valor . " ";
             }
             echo "<br>";
+            break;
         }
     }
 }
 
-insertionSort1(14, [1,3,5,9,13,22,27,35,46,51,55,83,87,23]);
+insertionSort1(10, [2,3,4,5,6,7,8,9,10,1]);
 
 ?>
