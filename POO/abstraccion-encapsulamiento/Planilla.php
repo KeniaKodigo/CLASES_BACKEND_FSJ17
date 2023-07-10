@@ -55,8 +55,10 @@ class Planilla{
     }
 }
 #instanciando la clase
-$empleado1 = new Planilla("Kenia Paiz","Vendedora",1500);
+/*$empleado1 = new Planilla("Kenia Paiz","Vendedora",1500);
 $empleado1->calcularDeducciones();
-echo $empleado1->resumen();
+echo $empleado1->resumen();*/
+
+//echo $_POST['nombre'];
 
 ?>
