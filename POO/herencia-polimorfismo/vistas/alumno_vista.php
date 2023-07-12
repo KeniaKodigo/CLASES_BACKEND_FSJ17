@@ -7,6 +7,9 @@
     <title>Document</title>
 </head>
 <body>
+    <?php 
+        require "../clases/Alumno.php";
+    ?>
     <h1>Gestion de Alumnos</h1>
     <div class="container">
         <form action="" method="POST">
@@ -51,6 +54,26 @@
 
             <input type="submit" class="btn btn-success mt-4" value="Gestionar Alumno">
         </form>
+
+        <?php
+        if(isset($_POST['nombre'], $_POST['edad'], $_POST['direccion'], $_POST['telefono'], $_POST['correo'], $_POST['carnet'], $_POST['materia'], $_POST['grado'], $_POST['encargado'])){
+            $nombre = $_POST['nombre'];
+            $edad = $_POST['edad'];
+            $direccion = $_POST['direccion'];
+            $telefono = $_POST['telefono'];
+            $correo = $_POST['correo'];
+            $carnet = $_POST['carnet'];
+            $materia = $_POST['materia'];
+            $grado = $_POST['grado'];
+            $encargado = $_POST['encargado'];
+
+            $alumno = new Alumno($nombre, $edad, $telefono, $direccion, $correo, $carnet, $materia, $grado, $encargado);
+            echo $alumno->informacionGeneral();
+            echo $alumno->informacionEstudiantil();
+        }
+        
+    ?>
     </div>
+    
 </body>
 </html>

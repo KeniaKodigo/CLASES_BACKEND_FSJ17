@@ -1,5 +1,5 @@
 <?php
-require "./Persona.php";
+require "../clases/Persona.php";
 
 #clase hija
 class Alumno extends Persona{
