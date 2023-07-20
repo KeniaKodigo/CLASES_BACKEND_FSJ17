@@ -31,6 +31,7 @@ class Inventario{
 
 #solucion de la inversion de dependencia
 
+#creando la abstraccion (interfaz)
 interface formatoPDF{
     public function procesarDocumento();
 }
@@ -52,11 +53,10 @@ class DOMPDF2 implements formatoPDF{
 class Inventario2{
 
     //formatoPDF => es la interfaz, tenemos acceso a todos los objetos de ese tipo
-    public function imprimirPDF(formatoPDF $formato){
+    public function imprimirPDF(formatoPDF $documento){
         //retorno el metodo en comun de las hijas
-        echo $formato->procesarDocumento();
+        echo $documento->procesarDocumento();
     }
-
 }
 
 $inventario1 = new Inventario2;

@@ -18,7 +18,7 @@ abstract class Animal{
      * metodo abstracto => es cuando se declara el metodo pero sin comportamiento y los hijos obligatoriamente tiene que tener ese metodo y declarar comportamiento
      */
 
-    abstract function hacerSonido();
+    abstract function hacerSonido(); //obligatorio
 
     public function saludar(){
         return "El reino animal te esta saludando";
