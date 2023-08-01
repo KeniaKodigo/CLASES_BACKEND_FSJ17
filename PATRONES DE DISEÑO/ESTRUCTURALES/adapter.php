@@ -4,13 +4,17 @@
 
 #problematica => telefono acepta cargadores de 24 volteos
 class Cargador12{
-    public function cargar(){
+    public function cargar12(){
         return "Estas cargando el celular con 12 volteos";
+    }
+
+    public function proceso(){
+        return "jnxkls,;c";
     }
 }
 
 class Cargador24{
-    public function cargar(){
+    public function cargar24(){
         return "Estas cargando el celular con 24 volteos";
     }
 }
@@ -27,18 +31,31 @@ class AdapterCargador12 extends Cargador24{
         //atributo va ser igual a la variable de Cargador12
         $this->cargador = $cargador12;
     }
+
+    //sobreescribir el metodo de la clase Cargador24
+    public function cargar24()
+    {
+        return $this->cargador->cargar12(); //Estas cargando el celular con 12 volteos
+    }
 }
 
 
 class Telefono{
     //metodo solo recibe objetos de Cargador24
-    public function seleccionarCargador(Cargador24 $cargador){
-        return $cargador->cargar(); //Estas cargando el celular con 24 volteos
+    public function seleccionarCargador(Cargador24 $cargador){ //instancia
+        return $cargador->cargar24(); //Estas cargando el celular con 24 volteos
     }
 }
 
-$telefono = new Telefono();
-$telefono->seleccionarCargador(new Cargador24);
+//instanciar una clase
+$samsung = new Telefono();
+echo $telefono->seleccionarCargador(new Cargador24);
+echo "<h3>Utilizando un adaptador</h3>";
+
+$huaweii = new Telefono();
+echo $telefono->seleccionarCargador(new AdapterCargador12(new Cargador12));
+
+
 
 
 ?>

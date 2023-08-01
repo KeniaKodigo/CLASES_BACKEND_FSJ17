@@ -45,6 +45,7 @@ abstract class Mensajeria{
     }
 }
 
+#SUBFABRICAS
 class MensajeriaTerrestre extends Mensajeria{
 
     public function obtenerTransporte(): Transporte
