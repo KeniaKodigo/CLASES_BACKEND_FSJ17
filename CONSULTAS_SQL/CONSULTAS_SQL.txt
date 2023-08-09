@@ -1,0 +1,31 @@
+#obtener el producto con el codigo 3 (where)
+select * from productos where codigo = 3;
+
+SELECT * FROM productos;
+#if(precio >= 20 && precio <=60)
+SELECT * from productos WHERE precio >= 100 AND precio <= 400;
+SELECT * FROM productos WHERE precio BETWEEN 450 and 600;
+
+#productos que cuesten mas o igual de 200
+SELECT * FROM productos WHERE precio >= 200;
+
+#obtener todos los productos que comienzen en una vocal LIKE
+SELECT * FROM productos WHERE nombre LIKE 'a%' OR nombre LIKE 'e%' OR nombre LIKE 'i%' OR nombre LIKE 'o%' OR nombre LIKE 'u%';
+
+SELECT * FROM productos WHERE nombre LIKE '%a' OR nombre LIKE '%e' OR nombre LIKE '%i' OR nombre LIKE '%o' OR nombre LIKE '%u';
+
+#Obtener el nombre, cantidad, precio de productos ordenados de forma descendente por precio
+#order by DESC - order by ASC
+SELECT nombre, cantidad, precio FROM productos ORDER BY precio DESC
+
+#consulta compuesta (INNER JOIN)
+SELECT productos.nombre AS producto, productos.descripcion, productos.cantidad, proveedores.nombre AS proveedor FROM productos INNER JOIN proveedores ON productos.codigo_proveedor = proveedores.codigo; 
+
+#obtener el producto mas barato de la tienda incluyendo el nombre del proveedor
+
+#ordenando los producto por precio ascedente, LIMIT
+SELECT productos.*, proveedores.nombre AS proveedor FROM productos INNER JOIN proveedores ON productos.codigo_proveedor = proveedores.codigo ORDER by productos.precio ASC LIMIT 1;
+SELECT * from productos ORDER by precio ASC LIMIT 1;
+
+#suma de los precios de todos los productos
+SELECT SUM(precio) AS total_precio FROM productos;
