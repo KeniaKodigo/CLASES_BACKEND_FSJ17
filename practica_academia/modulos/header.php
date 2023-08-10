@@ -14,7 +14,7 @@
                 <a href="#" class="nav-link scrollto active"><i class="bx bx-home"></i> <span>Home</span></a>
             </li>
             <li>
-                <a href="#" class="nav-link scrollto"><i class="bx bxs-user-detail"></i> <span>Gestion Estudiantes</span></a>
+                <a href="vistas/lista_estudiantes.php" class="nav-link scrollto"><i class="bx bxs-user-detail"></i> <span>Gestion Estudiantes</span></a>
             </li>
             <li>
                 <a href="#" class="nav-link scrollto"><i class="bx bx-user-x"></i> <span>Estudiantes Inactivos</span></a>
