@@ -60,6 +60,7 @@
                     <br>
                 <input type="submit" class="btn btn-success mt-4" value="Registrar">
             </form>
+            <?php $estudiante->insertar();  ?>
         </section>
     </main>
     <?php include "../modulos/footer.php";  ?>

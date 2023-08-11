@@ -18,7 +18,12 @@
     <link href="../assets/css/style.css" rel="stylesheet">
 </head>
 <body>
-    <?php include "../modulos/header.php";  ?>
+    <?php include "../modulos/header.php";  
+        require "../controladores/Estudiantes.php";
+
+        $alumno = new Estudiantes();
+        $datos = $alumno->obtenerEstudiantesActivos();
+    ?>
     <main id="main">
         <section class="container">
             <h1>Gestion de Estudiantes</h1>
@@ -34,7 +39,25 @@
                     <th>Bootcamp</th>
                     <th>Acciones</th>
                 </thead>
-                <tbody></tbody>
+                <tbody>
+                    <?php
+                        foreach($datos as $item){
+                    ?>
+                        <tr>
+                            <td></td>
+                            <td><?php echo $item['nombre']; ?></td>
+                            <td><?php echo $item['telefono']; ?></td>
+                            <td><?php echo $item['correo']; ?></td>
+                            <td><?php echo $item['bootcamp']; ?></td>
+                            <td>
+                                <button>Editar</button>
+                            </td>
+                            <td>
+                                <button>Cambiar Estado</button>
+                            </td>
+                        </tr>
+                    <?php } ?>
+                </tbody>
             </table>
         </section>
     </main>
