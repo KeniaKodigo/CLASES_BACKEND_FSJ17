@@ -88,8 +88,47 @@ class Estudiantes extends ConexionBD{
     #obtener todos los estudiantes activos o reubicado
     public function obtenerEstudiantesActivos(){
         $this->conectar();
-        $query = "SELECT estudiantes.nombre, estudiantes.telefono, estudiantes.correo, bootcamps.bootcamp FROM estudiantes INNER JOIN bootcamps ON estudiantes.id_bootcamp = bootcamps.id WHERE estudiantes.id_estado = 1 OR estudiantes.id_estado = 5";
+        $query = "SELECT estudiantes.id, estudiantes.nombre, estudiantes.telefono, estudiantes.correo, bootcamps.bootcamp, estado.estado FROM estudiantes INNER JOIN bootcamps ON estudiantes.id_bootcamp = bootcamps.id INNER JOIN estado ON estudiantes.id_estado = estado.id WHERE estudiantes.id_estado = 1 OR estudiantes.id_estado = 5";
 
+        $resultado = mysqli_query($this->conexion, $query);
+        return $resultado;
+    }
+
+    public function obtenerEstudianteById(){
+        if(isset($_POST['id_estudiante'])){
+            $this->id = $_POST['id_estudiante']; //7
+            $this->conectar();
+            $query = "SELECT * FROM estudiantes WHERE id = $this->id"; //[]
+            $resultado = mysqli_query($this->conexion, $query);
+            return $resultado;
+        }
+    }
+
+    public function actualizar(){
+        if(isset($_POST['nombre'], $_POST['direccion'], $_POST['telefono'], $_POST['correo'], $_POST['password'], $_POST['id_estudiante'])){
+
+            $this->nombre = $_POST['nombre']; //kenia
+            $this->direccion = $_POST['direccion'];
+            $this->telefono = $_POST['telefono'];
+            $this->correo = $_POST['correo'];
+            $this->password = $_POST['password'];
+            $this->id = $_POST['id_estudiante'];
+
+            $query = "UPDATE estudiantes SET nombre = '$this->nombre', direccion = '$this->direccion', telefono = $this->telefono, correo = '$this->correo', password = '$this->password' WHERE id = $this->id"; //objeto null - objeto valores
+            $resultado = mysqli_query($this->conexion, $query);
+            if(!empty($resultado)){
+                echo "<script>
+                    window.location = 'lista_estudiantes.php'
+                </script>";
+            }else{
+                echo "Error al actualizar el estudiante";
+            }
+        }
+    }
+
+    public function obtenerEstadoDesertadoEgresado(){
+        $this->conectar();
+        $query = "SELECT * FROM estado WHERE id = 3 OR id = 4";
         $resultado = mysqli_query($this->conexion, $query);
         return $resultado;
     }

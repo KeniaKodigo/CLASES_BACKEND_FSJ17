@@ -23,6 +23,7 @@
 
         $alumno = new Estudiantes();
         $datos = $alumno->obtenerEstudiantesActivos();
+        $estado = $alumno->obtenerEstadoDesertadoEgresado();
     ?>
     <main id="main">
         <section class="container">
@@ -37,6 +38,7 @@
                     <th>Telefono</th>
                     <th>Correo</th>
                     <th>Bootcamp</th>
+                    <th>Estado</th>
                     <th>Acciones</th>
                 </thead>
                 <tbody>
@@ -49,13 +51,51 @@
                             <td><?php echo $item['telefono']; ?></td>
                             <td><?php echo $item['correo']; ?></td>
                             <td><?php echo $item['bootcamp']; ?></td>
+                            <td><?php echo $item['estado']; ?></td>
                             <td>
-                                <button>Editar</button>
+                                <form action="./editar_estudiante.php" method="POST">
+                                    <input type="hidden" value="<?php echo $item['id']; ?>" name="id_estudiante">
+                                    <input type="submit" class="btn btn-warning" value="Editar">
+                                </form>
                             </td>
                             <td>
-                                <button>Cambiar Estado</button>
+                                <button type="button" class="btn btn-danger" data-bs-toggle="modal" data-bs-target="#ModalEstudiante<?php echo $item['id']; ?>">
+                                Estado
+                                </button>
                             </td>
                         </tr>
+
+                        <!-- Modal -->
+                        <div class="modal fade" id="ModalEstudiante<?php echo $item['id']; ?>" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                        <div class="modal-dialog">
+                            <div class="modal-content">
+                            <div class="modal-header">
+                                <h1 class="modal-title fs-5" id="exampleModalLabel">Modal title</h1>
+                                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                            </div>
+                            <form action="" method="POST">
+                            <div class="modal-body">
+                                <h5><?php echo $item['nombre']; ?></h5>
+                                
+                                    <label for="">Cambio de Estado</label>
+
+                                    <select name="estado" class="form-control">
+                                        <option value=""><?php echo $item['estado']; ?></option>
+
+                                        <?php foreach($estado as $value){ ?>
+                                            <option value="<?php echo $value['id']; ?>"><?php echo $value['estado']; ?></option>
+                                        <?php } ?>
+                                    </select>
+                                
+                            </div>
+                            <div class="modal-footer">
+                                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                                <input type="submit" class="btn btn-danger" value="Cambiar Estado">
+                            </div>
+                            </form>
+                            </div>
+                        </div>
+                        </div>
                     <?php } ?>
                 </tbody>
             </table>
