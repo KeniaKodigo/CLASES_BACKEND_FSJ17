@@ -18,7 +18,7 @@
     <link href="../assets/css/style.css" rel="stylesheet">
 </head>
 <body>
-    <?php include "../modulos/header.php";  
+    <?php include "../modulos/header-vistas.php";  
         require "../controladores/Estudiantes.php";
 
         $alumno = new Estudiantes();
@@ -76,9 +76,9 @@
                             <form action="" method="POST">
                             <div class="modal-body">
                                 <h5><?php echo $item['nombre']; ?></h5>
-                                
+                                    <input type="hidden" value="<?php echo $item['id']; ?>" name="id_estudiante">
+                                    
                                     <label for="">Cambio de Estado</label>
-
                                     <select name="estado" class="form-control">
                                         <option value=""><?php echo $item['estado']; ?></option>
 
@@ -93,6 +93,7 @@
                                 <input type="submit" class="btn btn-danger" value="Cambiar Estado">
                             </div>
                             </form>
+                            <?php $alumno->cambiarEstadoEgresadoDesercion();  ?>
                             </div>
                         </div>
                         </div>

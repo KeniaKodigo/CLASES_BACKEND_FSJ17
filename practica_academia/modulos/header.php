@@ -5,7 +5,7 @@
 
         <div class="profile">
         <img src="assets/img/profile-img.jpg" alt="" class="img-fluid rounded-circle">
-        <h1 class="text-light"><a href="#">Usuario</a></h1>
+        <h1 class="text-light"><a href="#"><?php echo $_SESSION['nombre_admin']; ?></a></h1>
         </div>
 
         <nav id="navbar" class="nav-menu navbar">
@@ -17,7 +17,7 @@
                 <a href="vistas/lista_estudiantes.php" class="nav-link scrollto"><i class="bx bxs-user-detail"></i> <span>Gestion Estudiantes</span></a>
             </li>
             <li>
-                <a href="#" class="nav-link scrollto"><i class="bx bx-user-x"></i> <span>Estudiantes Inactivos</span></a>
+                <a href="vistas/deserciones.php" class="nav-link scrollto"><i class="bx bx-user-x"></i> <span>Estudiantes Desertados</span></a>
             </li>
             <li>
                 <a href="#" class="nav-link scrollto"><i class="bx bx-book-content"></i> <span>Gestion Profesores</span></a>

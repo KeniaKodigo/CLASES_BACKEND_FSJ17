@@ -132,6 +132,33 @@ class Estudiantes extends ConexionBD{
         $resultado = mysqli_query($this->conexion, $query);
         return $resultado;
     }
+
+    public function cambiarEstadoEgresadoDesercion(){
+        if(isset($_POST['id_estudiante'], $_POST['estado'])){
+            $this->id = $_POST['id_estudiante'];
+            $this->id_estado = $_POST['estado'];
+
+            $query = "UPDATE estudiantes SET id_estado = $this->id_estado WHERE id = $this->id"; //objeto null - objeto valores
+            $resultado = mysqli_query($this->conexion, $query);
+            if(!empty($resultado)){
+                echo "<script>
+                    window.location = 'lista_estudiantes.php'
+                </script>";
+            }else{
+                echo "Error al actualizar el estado";
+            }
+        }
+    }
+
+    #obtener todos los estudiantes activos o reubicado
+    public function obtenerEstudiantesDesertados(){
+        $this->conectar();
+        $query = "SELECT estudiantes.id, estudiantes.nombre, estudiantes.telefono, estudiantes.correo, bootcamps.bootcamp, estado.estado FROM estudiantes INNER JOIN bootcamps ON estudiantes.id_bootcamp = bootcamps.id INNER JOIN estado ON estudiantes.id_estado = estado.id WHERE estudiantes.id_estado = 3";
+
+        $resultado = mysqli_query($this->conexion, $query);
+        return $resultado;
+    }
+
 }
 
 ?>

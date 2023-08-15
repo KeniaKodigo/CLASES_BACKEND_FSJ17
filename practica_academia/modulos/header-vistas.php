@@ -11,20 +11,20 @@
         </div>
 
         <nav id="navbar" class="nav-menu navbar">
-            <ul>
-                <li>
-                    <a href="#" class="nav-link scrollto active"><i class="bx bx-home"></i> <span>Home</span></a>
-                </li>
-                <li>
-                    <a href="#" class="nav-link scrollto"><i class="bx bxs-user-detail"></i> <span>Gestion Estudiantes</span></a>
-                </li>
-                <li>
-                    <a href="#" class="nav-link scrollto"><i class="bx bx-user-x"></i> <span>Estudiantes Inactivos</span></a>
-                </li>
-                <li>
-                    <a href="#" class="nav-link scrollto"><i class="bx bx-book-content"></i> <span>Gestion Profesores</span></a>
-                </li>
-            </ul>
+        <ul>
+            <li>
+                <a href="../home.php" class="nav-link scrollto active"><i class="bx bx-home"></i> <span>Home</span></a>
+            </li>
+            <li>
+                <a href="lista_estudiantes.php" class="nav-link scrollto"><i class="bx bxs-user-detail"></i> <span>Gestion Estudiantes</span></a>
+            </li>
+            <li>
+                <a href="deserciones.php" class="nav-link scrollto"><i class="bx bx-user-x"></i> <span>Estudiantes Desertados</span></a>
+            </li>
+            <li>
+                <a href="#" class="nav-link scrollto"><i class="bx bx-book-content"></i> <span>Gestion Profesores</span></a>
+            </li>
+        </ul>
         </nav>
     </div>
 </header>
